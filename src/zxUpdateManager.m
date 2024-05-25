@@ -1,4 +1,5 @@
 #import "zxUpdateManager.h"
+#import "KSJSON.h"
 
 @implementation zxUpdateManager
 + (void)validityCheck {
@@ -30,7 +31,10 @@
                      buttonText:@"strange"
                         handler:nil];
 
-        NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        // KSJSON is the tiniest bit faster than NSJSONSerialization, i just want an excuse to use it :P
+        NSString *jsstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSDictionary *resp = [KSJSON deserializeString:jsstr error:nil];
+
         if ([resp[@"resultCount"] isEqual:@0]) return
             [self markInvalidWithMsg:@"this app was not found on the app store.\n\np.s. did you change the bundle id?"
                                 text:@"okay"];
