@@ -1,9 +1,9 @@
 Package: fyi.zxcvbn.updatenotifier
 Name: zxUpdateNotifier
-Version: 1.1
+Version: 1.2
 Architecture: iphoneos-arm
 Description: an injectable tweak that detects when your IPA is out of date!
 Author: zxcvbn
 Maintainer: zxcvbn
 Section: Tweaks
-Depends: firmware (>= 12.0)
+Depends: firmware (>= 9.0)
