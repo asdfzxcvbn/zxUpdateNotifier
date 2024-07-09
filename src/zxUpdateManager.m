@@ -1,5 +1,4 @@
 #import "zxUpdateManager.h"
-#import "KSJSON.h"
 
 @implementation zxUpdateManager
 + (void)validityCheck {
